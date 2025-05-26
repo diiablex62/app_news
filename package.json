@@ -19,6 +19,7 @@
     "start": "node back/index.js",
     "build": "npm install && npm install --prefix front && npm run build --prefix front"
   },
+  
   "dependencies": {
     "accepts": "^2.0.0",
     "ansi-regex": "^6.1.0",
