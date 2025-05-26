@@ -11,13 +11,25 @@ const __DIRNAME = path.resolve();
 
 app.use(express.static(path.join(__DIRNAME, "/front/dist")));
 
+// Configuration CORS
+const allowedOrigins = [
+  "https://app-news-qfqs.onrender.com",
+  "http://localhost:5173",
+  "http://localhost:3000",
+];
+
 app.use(
   cors({
-    origin:
-      process.env.NODE_ENV === "production"
-        ? ["https://app-news-qfqs.onrender.com", "http://localhost:5173"]
-        : "http://localhost:5173",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "Accept"],
   })
 );
 

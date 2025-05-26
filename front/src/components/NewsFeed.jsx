@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import NewsForm from "./NewsForm";
 import { PostContext } from "../context/postContext.jsx";
 import { toast } from "react-toastify";
-import { API_ENDPOINTS } from "../config/api";
+import { API_ENDPOINTS, handleResponse } from "../config/api";
 
 function NewsFeed() {
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -14,15 +14,18 @@ function NewsFeed() {
 
     const fetchPosts = async () => {
       try {
-        const response = await fetch(API_ENDPOINTS.posts);
-        if (!response.ok) {
-          throw new Error("Erreur lors de la récupération des posts");
-        }
-        const data = await response.json();
+        const response = await fetch(API_ENDPOINTS.posts, {
+          credentials: "include",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        });
+        const data = await handleResponse(response);
         postContext.setNews(data);
       } catch (error) {
         console.error("Erreur:", error);
-        toast.error("Impossible de récupérer les posts");
+        toast.error(error.message || "Impossible de récupérer les posts");
       }
     };
 
