@@ -13,7 +13,9 @@ function NewsFeed() {
 
     const fetchPosts = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/posts");
+        const response = await fetch(
+          "https://app-news-qfqs.onrender.com/api/posts"
+        );
         if (!response.ok) {
           throw new Error("Erreur lors de la récupération des posts");
         }
