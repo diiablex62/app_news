@@ -15,7 +15,7 @@ app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 
 app.use(express.json());
 
-const postRoutes = require("./routes/post.routes");
+const postRoutes = require("./routes/posts");
 
 app.use("/post", postRoutes);
 
