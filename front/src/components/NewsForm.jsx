@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { PostContext } from "../context/postContext.jsx";
 import { toast } from "react-toastify";
+import { API_ENDPOINTS } from "../config/api";
 
 function NewsForm({ toggleForm }) {
   const [title, setTitle] = useState("");
@@ -28,7 +29,7 @@ function NewsForm({ toggleForm }) {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://app-news-qfqs.onrender.com/post", {
+      const response = await fetch(API_ENDPOINTS.posts, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

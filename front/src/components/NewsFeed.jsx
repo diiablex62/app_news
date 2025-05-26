@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import NewsForm from "./NewsForm";
 import { PostContext } from "../context/postContext.jsx";
 import { toast } from "react-toastify";
+import { API_ENDPOINTS } from "../config/api";
 
 function NewsFeed() {
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -13,17 +14,7 @@ function NewsFeed() {
 
     const fetchPosts = async () => {
       try {
-        const response = await fetch(
-          "https://app-news-qfqs.onrender.com/post",
-          {
-            method: "GET",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            credentials: "include",
-          }
-        );
+        const response = await fetch(API_ENDPOINTS.posts);
         if (!response.ok) {
           throw new Error("Erreur lors de la récupération des posts");
         }

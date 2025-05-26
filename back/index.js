@@ -25,7 +25,7 @@ app.use(express.json());
 
 const postRoutes = require("./routes/posts");
 
-app.use("/post", postRoutes);
+app.use("/api/posts", postRoutes);
 
 app.get(/(.*)/, (req, res) => {
   res.sendFile(path.join(__DIRNAME, "front", "dist", "index.html"));
