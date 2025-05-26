@@ -1,0 +1,40 @@
+{
+  "name": "app_news",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/diiablex62/app_news#readme",
+  "bugs": {
+    "url": "https://github.com/diiablex62/app_news/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diiablex62/app_news.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon back/index.js",
+    "start": "node front/index.js",
+    "build": "npm install && npm install --prefix front && npm run build --prefix front"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "lucide-react": "^0.511.0",
+    "mongoose": "^8.15.0",
+    "nodemon": "^3.1.10",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.56.4",
+    "react-hot-toast": "^2.5.2",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^6.22.3",
+    "react-toastify": "^11.0.5",
+    "uuid": "^11.1.0",
+    "yup": "^1.6.1"
+  }
+}
