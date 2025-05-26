@@ -13,7 +13,17 @@ function NewsFeed() {
 
     const fetchPosts = async () => {
       try {
-        const response = await fetch("https://app-news-qfqs.onrender.com/post");
+        const response = await fetch(
+          "https://app-news-qfqs.onrender.com/post",
+          {
+            method: "GET",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            credentials: "include",
+          }
+        );
         if (!response.ok) {
           throw new Error("Erreur lors de la récupération des posts");
         }
