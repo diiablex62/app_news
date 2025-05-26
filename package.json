@@ -15,9 +15,9 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-   "server": "nodemon back/index.js",
-  "start": "node back/index.js",
-  "build": "npm install && npm install --prefix front && npm run build --prefix front"
+    "server": "nodemon back/index.js",
+    "start": "node back/index.js",
+    "build": "npm install && npm install --prefix front && npm run build --prefix front"
   },
   "dependencies": {
     "accepts": "^2.0.0",
@@ -230,6 +230,5 @@
     "wrappy": "^1.0.2",
     "yaml": "^2.8.0",
     "yup": "^1.6.1"
-  },
-  "devDependencies": {}
+  }
 }
