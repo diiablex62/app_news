@@ -28,7 +28,7 @@ function NewsForm({ toggleForm }) {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://app-news-qfqs.onrender.com/api/posts", {
+      const response = await fetch("https://app-news-qfqs.onrender.com/post", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

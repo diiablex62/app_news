@@ -11,7 +11,15 @@ const __DIRNAME = path.resolve();
 
 app.use(express.static(path.join(__DIRNAME, "/front/dist")));
 
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(
+  cors({
+    origin:
+      process.env.NODE_ENV === "production"
+        ? ["https://app-news.onrender.com", "http://localhost:5173"]
+        : "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 
